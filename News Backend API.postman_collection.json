@@ -1,0 +1,247 @@
+{
+	"info": {
+		"_postman_id": "d74588f3-25e5-4903-aa76-857b6b60ccaf",
+		"name": "News Backend API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2314136"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/health",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Articles by Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/news/category?category=Technology&limit=3",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"news",
+						"category"
+					],
+					"query": [
+						{
+							"key": "category",
+							"value": "Technology",
+							"description": "Category to filter by"
+						},
+						{
+							"key": "limit",
+							"value": "3",
+							"description": "Number of results to return"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Articles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/news/search?query=AI&limit=3",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"news",
+						"search"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "AI",
+							"description": "Search query string"
+						},
+						{
+							"key": "limit",
+							"value": "3",
+							"description": "Number of results to return"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Articles by Source",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/api/v1/news/source?source=Reuters&limit=3",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"news",
+						"source"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "Reuters",
+							"description": "News source to filter by"
+						},
+						{
+							"key": "limit",
+							"value": "3",
+							"description": "Number of results to return"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Nearby Articles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/news/nearby?lat=20.5937&lon=78.9629&radius=1000&limit=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"news",
+						"nearby"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "20.5937",
+							"description": "Latitude"
+						},
+						{
+							"key": "lon",
+							"value": "78.9629",
+							"description": "Longitude"
+						},
+						{
+							"key": "radius",
+							"value": "1000",
+							"description": "Radius in kilometers"
+						},
+						{
+							"key": "limit",
+							"value": "3",
+							"description": "Number of results to return"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Trending Articles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/news/trending?lat=20.5937&lon=78.9629&limit=3&radius=1000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"news",
+						"trending"
+					],
+					"query": [
+						{
+							"key": "lat",
+							"value": "20.5937",
+							"description": "Latitude"
+						},
+						{
+							"key": "lon",
+							"value": "78.9629",
+							"description": "Longitude"
+						},
+						{
+							"key": "limit",
+							"value": "3",
+							"description": "Number of results to return"
+						},
+						{
+							"key": "radius",
+							"value": "1000",
+							"description": "Radius in kilometers"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Process Query with LLM",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/news/process?query=Show%20me%20technology%20news",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"news",
+						"process"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "Show%20me%20technology%20news",
+							"description": "Natural language query"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
